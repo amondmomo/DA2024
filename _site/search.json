@@ -7,6 +7,27 @@
     "text": "About this blog"
   },
   {
+    "objectID": "posts/단층신경망_VS_다층신경망.html",
+    "href": "posts/단층신경망_VS_다층신경망.html",
+    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
+    "section": "",
+    "text": "# 1차 함수로 극복 가능\n- w1,w2 -&gt; 가중치로 기울기 위치 변동\n\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/단층신경망_VS_다층신경망.html#단층신경망",
+    "href": "posts/단층신경망_VS_다층신경망.html#단층신경망",
+    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
+    "section": "",
+    "text": "# 1차 함수로 극복 가능\n- w1,w2 -&gt; 가중치로 기울기 위치 변동\n\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/단층신경망_VS_다층신경망.html#다층신경망",
+    "href": "posts/단층신경망_VS_다층신경망.html#다층신경망",
+    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
+    "section": "다층신경망",
+    "text": "다층신경망\n\n\n\nimage.png\n\n\n\nXOR 분류\n\n\n\nimage.png\n\n\n1 -&gt; 파란선 위(1), 빨간선 위(1) 이므로 (1,1)의 결정경계좌표평면으로 이동\n2,3 -&gt; 파란선 아래(0), 빨간선 위(1) 이므로 (0,1)의 결정경계좌표평면으로 이동\n4 -&gt; 파란선 아래(0), 빨간선 아래(0) 이므로 (0,0)의 결정경계좌표평면으로 이동"
+  },
+  {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "Welcome To My Blog",
@@ -21,10 +42,45 @@
     "text": "This is a post with executable code."
   },
   {
+    "objectID": "posts/딥러닝_개념_기초_(1)_with_ANN.html",
+    "href": "posts/딥러닝_개념_기초_(1)_with_ANN.html",
+    "title": "Deep Learning Basic (1)",
+    "section": "",
+    "text": "image.png\n\n\n머신러닝 :알고리즘기반, 데이터를 모델 적합(fit)\n딥러닝 : 인공신경망(artificial neural network, ANN) 기반, 보통 비정형 데이터 분석\n딥러닝 -&gt; 머신러닝 -&gt; 인공지능\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/딥러닝_개념_기초_(1)_with_ANN.html#딥러닝-머신러닝-인공지능-차이",
+    "href": "posts/딥러닝_개념_기초_(1)_with_ANN.html#딥러닝-머신러닝-인공지능-차이",
+    "title": "Deep Learning Basic (1)",
+    "section": "",
+    "text": "image.png\n\n\n머신러닝 :알고리즘기반, 데이터를 모델 적합(fit)\n딥러닝 : 인공신경망(artificial neural network, ANN) 기반, 보통 비정형 데이터 분석\n딥러닝 -&gt; 머신러닝 -&gt; 인공지능\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/딥러닝_개념_기초_(1)_with_ANN.html#지도학습-비지도-학습-강화-학습",
+    "href": "posts/딥러닝_개념_기초_(1)_with_ANN.html#지도학습-비지도-학습-강화-학습",
+    "title": "Deep Learning Basic (1)",
+    "section": "지도학습, 비지도 학습, 강화 학습",
+    "text": "지도학습, 비지도 학습, 강화 학습\n지도학습 : 정답이 있음 - 예) 고양이 사진, 토끼 사진 등..\n비지도 학습 : 정답이 없음, 상관관계 학습 - 예) 구매 이력으로 소득수준 파악, 취향 판단 등\n강화 학습 : 데이터 입력x, 인공지능 &lt;-&gt; 환경 상호작용 / 보상과 벌을 통해 학습 개선 - 예) 알파고\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/딥러닝_개념_기초_(1)_with_ANN.html#딥러닝-문제-해결-프로세스",
+    "href": "posts/딥러닝_개념_기초_(1)_with_ANN.html#딥러닝-문제-해결-프로세스",
+    "title": "Deep Learning Basic (1)",
+    "section": "딥러닝 문제 해결 프로세스",
+    "text": "딥러닝 문제 해결 프로세스\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/딥러닝_개념_기초_(1)_with_ANN.html#기초개념",
+    "href": "posts/딥러닝_개념_기초_(1)_with_ANN.html#기초개념",
+    "title": "Deep Learning Basic (1)",
+    "section": "기초개념",
+    "text": "기초개념\n\n퍼셉트론 : – 입력값(x1,x2,..)과 가중치(w1,w2..), 편향(b,bias)을 이용해 출력값을 내는 수학적 모델. – 출력값이 0과 1로 출력됨. – 퍼셉트론이 하나이면 단층 인공 신경망 퍼셉트론이 여러개 이면 다층 인공 신경망"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "DA2024",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 24, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 21, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Deep Learning Basic (1)\n\n\n\n\n\n\nDeep Learning\n\n\n\n\n\n\n\n\n\nDec 2, 2025\n\n\n이정민\n\n\n\n\n\n\n\n\n\n\n\n\n단층 신경망 vs 다층 신경망 with 가중치 수정\n\n\n\n\n\n\nDeep Learning\n\n\n\n\n\n\n\n\n\nDec 2, 2025\n\n\n이정민\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 24, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 21, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   }
 ]
