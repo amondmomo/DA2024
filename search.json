@@ -7,11 +7,74 @@
     "text": "About this blog"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DA2024",
+    "objectID": "posts/단층신경망_VS_다층신경망.html",
+    "href": "posts/단층신경망_VS_다층신경망.html",
+    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
     "section": "",
-    "text": "Import\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDeep Learning Basic (1)\n\n\n\n\n\n\nDeep Learning\n\n\n\n\n\n\n\n\n\nDec 2, 2025\n\n\n이정민\n\n\n\n\n\n\n\n\n\n\n\n\n단층 신경망 vs 다층 신경망 with 가중치 수정\n\n\n\n\n\n\nDeep Learning\n\n\n\n\n\n\n\n\n\nDec 2, 2025\n\n\n이정민\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 24, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 21, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "# 1차 함수로 극복 가능\n- w1,w2 -&gt; 가중치로 기울기 위치 변동\n\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/단층신경망_VS_다층신경망.html#단층신경망",
+    "href": "posts/단층신경망_VS_다층신경망.html#단층신경망",
+    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
+    "section": "",
+    "text": "# 1차 함수로 극복 가능\n- w1,w2 -&gt; 가중치로 기울기 위치 변동\n\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/단층신경망_VS_다층신경망.html#다층신경망",
+    "href": "posts/단층신경망_VS_다층신경망.html#다층신경망",
+    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
+    "section": "다층신경망",
+    "text": "다층신경망\n\n\n\nimage.png\n\n\n\nXOR 분류\n\n\n\nimage.png\n\n\n1 -&gt; 파란선 위(1), 빨간선 위(1) 이므로 (1,1)의 결정경계좌표평면으로 이동\n2,3 -&gt; 파란선 아래(0), 빨간선 위(1) 이므로 (0,1)의 결정경계좌표평면으로 이동\n4 -&gt; 파란선 아래(0), 빨간선 아래(0) 이므로 (0,0)의 결정경계좌표평면으로 이동"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/icmpdtr.html",
+    "href": "posts/icmpdtr.html",
+    "title": "회귀 문제",
+    "section": "",
+    "text": "#!pip autogluon\n#!pip install autogluon.eda\n#!pip install lightgbm\n\n\nfrom sklearn.ensemble import GradientBoostingRegressor\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import mean_squared_error\nfrom sklearn.tree import DecisionTreeRegressor\nfrom sklearn.cluster import KMeans\nimport autogluon.eda.auto as auto\nfrom autogluon.tabular import TabularPredictor\nfrom autogluon.common import space\nimport lightgbm as lgb\n\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport sklearn.preprocessing\nimport sklearn.impute\nimport IPython\nimport os\nimport warnings\nwarnings.filterwarnings('ignore')\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.preprocessing import StandardScaler\ndf_train = pd.read_csv(\"/content/train.csv\")\ndf_test = pd.read_csv(\"/content/test.csv\")\nsubmission = pd.read_csv(\"/content/sample_submission.csv\")\n\nfrom sklearn.model_selection import GridSearchCV\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import StratifiedKFold\nfrom sklearn.metrics import mean_absolute_error\nfrom scipy.optimize import minimize\nfrom sklearn.preprocessing import LabelEncoder"
+  },
+  {
+    "objectID": "posts/icmpdtr.html#범주형-변수를-인코딩",
+    "href": "posts/icmpdtr.html#범주형-변수를-인코딩",
+    "title": "회귀 문제",
+    "section": ". 범주형 변수를 인코딩",
+    "text": ". 범주형 변수를 인코딩\n\ndf_train = pd.read_csv(\"train.csv\")\ndf_test = pd.read_csv(\"test.csv\")\nsubmission = pd.read_csv(\"sample_submission.csv\")\n\nX = df_train.query('Age&gt;=15').rename({'Working_Week (Yearly)':'Working_Week_Yearly'},axis=1)\\\n.query('Employment_Status!=\"Not Working\"').query('Working_Week_Yearly != 0 or Age&lt;80')\\\n.query('Occupation_Status != \"Unknown\"').loc[:,'Age':'Income_Status']\ny = df_train.query('Age&gt;=15').rename({'Working_Week (Yearly)':'Working_Week_Yearly'},axis=1)\\\n.query('Employment_Status!=\"Not Working\"').query('Working_Week_Yearly != 0 or Age&lt;80')\\\n.query('Occupation_Status != \"Unknown\"').loc[:,'Income']\n#################\nfor i in encoding_target:\n    le = LabelEncoder()\n\n    # train과 test 데이터셋에서 해당 열의 모든 값을 문자열로 변환\n    X[i] = X[i].astype(str)\n    X[i] = X[i].astype(str)\n\n    # 반드시 trian에만 fit 하고 test에는 fit하면 안됨(이유 궁금하면 찾아보세요)\n    le.fit(X[i])\n    X[i] = le.transform(X[i])\n\n    # le.classes_에서 train에는 없지만 test 에만 있는 값이 있으면 le.classes_에 해당 값을 추가\n    for case in np.unique(X[i]):\n        if case not in le.classes_:\n            le.classes_ = np.append(le.classes_, case)\n    X[i] = le.transform(X[i])\n\nfor i in encoding_target:\n    le = LabelEncoder()\n\n    # train과 test 데이터셋에서 해당 열의 모든 값을 문자열로 변환\n    df_test[i] = df_test[i].astype(str)\n    df_test[i] = df_test[i].astype(str)\n\n    # 반드시 trian에만 fit 하고 test에는 fit하면 안됨(이유 궁금하면 찾아보세요)\n    le.fit(df_test[i])\n    df_test[i] = le.transform(df_test[i])\n\n    # le.classes_에서 train에는 없지만 test 에만 있는 값이 있으면 le.classes_에 해당 값을 추가\n    for case in np.unique(df_test[i]):\n        if case not in le.classes_:\n            le.classes_ = np.append(le.classes_, case)\n    df_test[i] = le.transform(df_test[i])\n#################\n\npredictr = GradientBoostingRegressor()\npredictr.fit(X,y)\n\nXX = df_test.drop('ID',axis=1).rename({'Working_Week (Yearly)':'Working_Week_Yearly'},axis=1)\npredictr.predict(XX)\n\ndf_test = df_test.assign(predict_income=predictr.predict(XX))\ndf_test = df_test.rename(columns={'predict_income': 'Income'})\n#df_test\n\nReal_test = df_test.query('Age &gt;= 15').rename({'Working_Week (Yearly)': 'Working_Week'}, axis=1) \\\n    .query('Employment_Status != \"Not Working\"').query('Working_Week != 0 or Age &lt; 80') \\\n    .query('Occupation_Status != \"Unknown\"')\n\nUnReal_test = df_test.drop(Real_test.index)  # XX 는 걸러진 얘들 제거할 얘들\ndf_test.loc[UnReal_test.index, 'Income'] = 0\ndf_test.loc[Real_test.index, 'Income'] = Real_test.Income\ndf_test.loc[UnReal_test.index.difference(df_test.index), 'Income'] = 0\ndf_test\n\n\n  \n    \n\n\n\n\n\n\nID\nAge\nGender\nEducation_Status\nEmployment_Status\nWorking_Week (Yearly)\nIndustry_Status\nOccupation_Status\nRace\nHispanic_Origin\n...\nCitizenship\nBirth_Country\nBirth_Country (Father)\nBirth_Country (Mother)\nTax_Status\nGains\nLosses\nDividends\nIncome_Status\nIncome\n\n\n\n\n0\nTEST_0000\n79\n3\n26\n8\n0\n38\n29\n9\n10\n...\n7\n80\n81\n83\n11\n0\n0\n0\n4\n622.274382\n\n\n1\nTEST_0001\n47\n3\n24\n8\n0\n38\n29\n9\n18\n...\n7\n80\n80\n82\n10\n0\n0\n0\n4\n734.139843\n\n\n2\nTEST_0002\n18\n2\n26\n8\n52\n43\n26\n9\n10\n...\n7\n80\n80\n82\n11\n0\n0\n0\n4\n680.131995\n\n\n3\nTEST_0003\n39\n2\n18\n10\n30\n36\n26\n9\n10\n...\n7\n80\n80\n82\n8\n0\n0\n0\n5\n884.705937\n\n\n4\nTEST_0004\n6\n3\n20\n8\n0\n38\n29\n9\n16\n...\n7\n80\n80\n82\n10\n0\n0\n0\n5\n0.000000\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n9995\nTEST_9995\n31\n3\n19\n8\n52\n39\n27\n9\n10\n...\n7\n80\n80\n82\n11\n0\n0\n0\n4\n881.730855\n\n\n9996\nTEST_9996\n27\n3\n21\n8\n52\n43\n19\n9\n10\n...\n7\n80\n80\n82\n8\n0\n0\n0\n4\n919.032224\n\n\n9997\nTEST_9997\n18\n3\n29\n8\n7\n43\n26\n6\n10\n...\n7\n80\n80\n82\n10\n0\n0\n0\n4\n648.937575\n\n\n9998\nTEST_9998\n9\n3\n20\n8\n0\n38\n29\n9\n10\n...\n7\n80\n80\n82\n10\n0\n0\n0\n4\n0.000000\n\n\n9999\nTEST_9999\n34\n3\n29\n10\n39\n43\n21\n9\n10\n...\n7\n80\n80\n82\n8\n0\n0\n0\n4\n732.249204\n\n\n\n\n10000 rows × 23 columns"
+  },
+  {
+    "objectID": "posts/당뇨병_최종.html",
+    "href": "posts/당뇨병_최종.html",
+    "title": "당뇨병 예측",
+    "section": "",
+    "text": "#!pip autogluon\n#!pip install autogluon.eda"
+  },
+  {
+    "objectID": "posts/당뇨병_최종.html#그리드-서치를-이용한-하이퍼파라메타-수정",
+    "href": "posts/당뇨병_최종.html#그리드-서치를-이용한-하이퍼파라메타-수정",
+    "title": "당뇨병 예측",
+    "section": "그리드 서치를 이용한 하이퍼파라메타 수정",
+    "text": "그리드 서치를 이용한 하이퍼파라메타 수정\n\n# Extract features and target variable\nX = pd.get_dummies(X_train_sclaed2.loc[:,'Pregnancies':'Age'])\ny = X_train_sclaed2[['Outcome']]\n\n# Define the logistic regression model\nlogistic_reg = LogisticRegression()\n\n# StratifiedKFold를 사용하여 데이터를 분할\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\n\n# Define the parameter grid\nparam_grid = {\n    'C': [0.001, 0.01, 0.1, 1, 10, 100],\n    'solver': ['newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga'],\n    'max_iter': [100, 200, 300, 400, 500]\n}\n\n# Create GridSearchCV object\ngrid_search = GridSearchCV(logistic_reg, param_grid, cv=cv, scoring='accuracy')\n\n# Fit GridSearchCV to data\ngrid_search.fit(X, y)\n\n# Extract best estimator and its score\nbest_estimator = grid_search.best_estimator_\nbest_score = grid_search.best_score_\n\nprint(\"Best parameters:\", grid_search.best_params_)\nprint(\"Best score:\", best_score)"
+  },
+  {
+    "objectID": "posts/당뇨병_최종.html#변수-설정",
+    "href": "posts/당뇨병_최종.html#변수-설정",
+    "title": "당뇨병 예측",
+    "section": "변수 설정",
+    "text": "변수 설정\n\nauto.quick_fit(\n    train_data=X_train_sclaed2,\n    label='Outcome',\n    show_feature_importance_barplots=True\n)\n\nNo path specified. Models will be saved in: \"AutogluonModels/ag-20240321_070806/\"\n\n\nModel Prediction for Outcome\n\n\nUsing validation data for Test points\n\n\n\n\n\n\n\n\n\nModel Leaderboard\n\n\n\n  \n    \n\n\n\n\n\n\nmodel\nscore_test\nscore_val\npred_time_test\npred_time_val\nfit_time\npred_time_test_marginal\npred_time_val_marginal\nfit_time_marginal\nstack_level\ncan_infer\nfit_order\n\n\n\n\n0\nLightGBMXT\n0.755102\n0.793478\n0.003299\n0.003121\n0.363972\n0.003299\n0.003121\n0.363972\n1\nTrue\n1\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n    \n  \n\n\nFeature Importance for Trained Model\n\n\n\n  \n    \n\n\n\n\n\n\nimportance\nstddev\np_value\nn\np99_high\np99_low\n\n\n\n\nGlucose\n1.163265e-01\n0.015890\n0.000041\n5\n0.149045\n0.083608\n\n\nBMI\n1.224490e-02\n0.015972\n0.080814\n5\n0.045131\n-0.020641\n\n\nPregnancies\n1.020408e-02\n0.013008\n0.077136\n5\n0.036987\n-0.016579\n\n\nBloodPressure\n5.102041e-03\n0.003608\n0.017055\n5\n0.012530\n-0.002326\n\n\nSkinThickness\n1.020408e-03\n0.004269\n0.310654\n5\n0.009810\n-0.007769\n\n\nInsulin\n1.020408e-03\n0.010456\n0.418970\n5\n0.022550\n-0.020509\n\n\nAge\n-4.440892e-17\n0.006249\n0.500000\n5\n0.012866\n-0.012866\n\n\nDiabetesPedigreeFunction\n-5.102041e-03\n0.024469\n0.667353\n5\n0.045279\n-0.055483\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\n\n\n\n\n\n\nRows with the highest prediction error\n\n\nRows in this category worth inspecting for the causes of the error\n\n\n\n  \n    \n\n\n\n\n\n\nPregnancies\nGlucose\nBloodPressure\nSkinThickness\nInsulin\nBMI\nDiabetesPedigreeFunction\nAge\nOutcome\n0\n1\nerror\n\n\n\n\n5\n-0.518286\n-1.431480\n-1.887832\n0.328284\n-0.800806\n-0.193986\n-0.705937\n-0.635655\n1\n0.906169\n0.093831\n0.812337\n\n\n477\n0.000000\n-0.579660\n-0.698307\n0.906640\n-1.075827\n0.195752\n0.229493\n-0.974186\n1\n0.870545\n0.129455\n0.741090\n\n\n567\n0.000000\n-0.481373\n-0.868239\n0.096941\n-0.961235\n0.645451\n1.111368\n-0.720288\n1\n0.805917\n0.194083\n0.611834\n\n\n379\n-0.518286\n-0.022701\n-1.717900\n0.000000\n0.000000\n0.555511\n-1.137948\n-0.720288\n1\n0.749880\n0.250120\n0.499760\n\n\n210\n2.535578\n-1.234906\n-0.018578\n0.212612\n0.000000\n-0.388855\n-0.530990\n1.057002\n1\n0.742102\n0.257898\n0.484204\n\n\n246\n-0.178968\n-0.415849\n-0.698307\n1.716339\n-0.674755\n0.375632\n1.639779\n-0.635655\n1\n0.735923\n0.264077\n0.471846\n\n\n211\n0.499669\n-0.645185\n0.831083\n0.000000\n0.000000\n-0.223966\n-0.948720\n0.210673\n1\n0.726287\n0.273712\n0.452575\n\n\n309\n-0.518286\n0.272160\n0.491219\n-0.712758\n-0.903939\n-0.583725\n-0.438161\n0.041408\n1\n0.725646\n0.274354\n0.451293\n\n\n292\n-0.178968\n0.403209\n-0.018578\n0.000000\n0.000000\n-1.273262\n-0.602397\n2.241861\n1\n0.714604\n0.285396\n0.429209\n\n\n354\n-1.196923\n-0.219275\n-0.188510\n0.096941\n-0.709132\n0.345652\n0.297330\n-0.127858\n1\n0.709893\n0.290107\n0.419787\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\nRows with the least distance vs other class\n\n\nRows in this category are the closest to the decision boundary vs the other class and are good candidates for additional labeling\n\n\n\n  \n    \n\n\n\n\n\n\nPregnancies\nGlucose\nBloodPressure\nSkinThickness\nInsulin\nBMI\nDiabetesPedigreeFunction\nAge\nOutcome\n0\n1\nerror\n\n\n\n\n611\n-0.178968\n-0.055463\n-0.358442\n0.000000\n0.000000\n-0.403845\n0.939991\n0.041408\n0\n0.491737\n0.508263\n0.016526\n\n\n368\n-0.178968\n0.665307\n1.170947\n0.000000\n0.000000\n1.754706\n0.711489\n-0.974186\n1\n0.508290\n0.491710\n0.016580\n\n\n92\n1.856942\n0.567020\n0.661151\n0.000000\n0.000000\n-0.778594\n3.553483\n1.987963\n0\n0.481925\n0.518075\n0.036150\n\n\n372\n0.499669\n2.368946\n0.491219\n0.000000\n0.000000\n-1.318232\n-1.130808\n2.157229\n1\n0.519181\n0.480819\n0.038361\n\n\n25\n-1.196923\n0.894643\n-0.358442\n-0.018730\n-0.353897\n-0.448815\n-0.345332\n0.718470\n1\n0.524848\n0.475152\n0.049697\n\n\n217\n1.856942\n1.320553\n1.001015\n0.000000\n0.000000\n-0.688654\n-0.941579\n1.734064\n0\n0.472799\n0.527201\n0.054402\n\n\n145\n-0.178968\n0.960168\n1.510812\n1.022311\n0.000000\n-0.388855\n-0.541701\n0.210673\n0\n0.471797\n0.528203\n0.056407\n\n\n434\n-0.857604\n-0.415849\n1.680744\n0.000000\n0.000000\n1.559837\n1.425558\n1.734064\n0\n0.471443\n0.528557\n0.057113\n\n\n496\n-0.518286\n1.910274\n-0.698307\n-0.481415\n-1.007072\n0.255712\n-0.623819\n-0.635655\n0\n0.466142\n0.533858\n0.067716\n\n\n214\n0.838987\n-0.252037\n-0.698307\n0.000000\n0.000000\n-0.733624\n1.022109\n0.041408\n1\n0.534523\n0.465477\n0.069045\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\nGPT한테도 물어보자..\n나이 (Age): 나이는 당뇨병 발병 위험에 중요한 영향을 미칩니다. 일반적으로 나이가 들면 인슐린 저항성이 증가하고, 신체의 대사 활동이 감소함에 따라 당뇨병 발병 위험이 증가합니다.\n당뇨 혈통 기능 (Diabetes Pedigree Function): 이것은 당뇨병과 관련된 가족력을 나타냅니다. 당뇨병은 유전적 요인이 상당한 영향을 미칩니다. 가족 중에서 당뇨병이 있는 경우, 해당 개인의 당뇨병 발병 위험이 증가할 수 있습니다."
   },
   {
     "objectID": "posts/딥러닝_개념_기초_(1)_with_ANN.html",
@@ -49,73 +112,10 @@
     "text": "기초개념\n\n퍼셉트론 : – 입력값(x1,x2,..)과 가중치(w1,w2..), 편향(b,bias)을 이용해 출력값을 내는 수학적 모델. – 출력값이 0과 1로 출력됨. – 퍼셉트론이 하나이면 단층 인공 신경망 퍼셉트론이 여러개 이면 다층 인공 신경망"
   },
   {
-    "objectID": "posts/당뇨병_최종.html",
-    "href": "posts/당뇨병_최종.html",
-    "title": "당뇨병 예측",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DA2024",
     "section": "",
-    "text": "#!pip autogluon\n#!pip install autogluon.eda"
-  },
-  {
-    "objectID": "posts/당뇨병_최종.html#그리드-서치를-이용한-하이퍼파라메타-수정",
-    "href": "posts/당뇨병_최종.html#그리드-서치를-이용한-하이퍼파라메타-수정",
-    "title": "당뇨병 예측",
-    "section": "그리드 서치를 이용한 하이퍼파라메타 수정",
-    "text": "그리드 서치를 이용한 하이퍼파라메타 수정\n\n# Extract features and target variable\nX = pd.get_dummies(X_train_sclaed2.loc[:,'Pregnancies':'Age'])\ny = X_train_sclaed2[['Outcome']]\n\n# Define the logistic regression model\nlogistic_reg = LogisticRegression()\n\n# StratifiedKFold를 사용하여 데이터를 분할\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\n\n# Define the parameter grid\nparam_grid = {\n    'C': [0.001, 0.01, 0.1, 1, 10, 100],\n    'solver': ['newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga'],\n    'max_iter': [100, 200, 300, 400, 500]\n}\n\n# Create GridSearchCV object\ngrid_search = GridSearchCV(logistic_reg, param_grid, cv=cv, scoring='accuracy')\n\n# Fit GridSearchCV to data\ngrid_search.fit(X, y)\n\n# Extract best estimator and its score\nbest_estimator = grid_search.best_estimator_\nbest_score = grid_search.best_score_\n\nprint(\"Best parameters:\", grid_search.best_params_)\nprint(\"Best score:\", best_score)"
-  },
-  {
-    "objectID": "posts/당뇨병_최종.html#변수-설정",
-    "href": "posts/당뇨병_최종.html#변수-설정",
-    "title": "당뇨병 예측",
-    "section": "변수 설정",
-    "text": "변수 설정\n\nauto.quick_fit(\n    train_data=X_train_sclaed2,\n    label='Outcome',\n    show_feature_importance_barplots=True\n)\n\nNo path specified. Models will be saved in: \"AutogluonModels/ag-20240321_070806/\"\n\n\nModel Prediction for Outcome\n\n\nUsing validation data for Test points\n\n\n\n\n\n\n\n\n\nModel Leaderboard\n\n\n\n  \n    \n\n\n\n\n\n\nmodel\nscore_test\nscore_val\npred_time_test\npred_time_val\nfit_time\npred_time_test_marginal\npred_time_val_marginal\nfit_time_marginal\nstack_level\ncan_infer\nfit_order\n\n\n\n\n0\nLightGBMXT\n0.755102\n0.793478\n0.003299\n0.003121\n0.363972\n0.003299\n0.003121\n0.363972\n1\nTrue\n1\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n    \n  \n\n\nFeature Importance for Trained Model\n\n\n\n  \n    \n\n\n\n\n\n\nimportance\nstddev\np_value\nn\np99_high\np99_low\n\n\n\n\nGlucose\n1.163265e-01\n0.015890\n0.000041\n5\n0.149045\n0.083608\n\n\nBMI\n1.224490e-02\n0.015972\n0.080814\n5\n0.045131\n-0.020641\n\n\nPregnancies\n1.020408e-02\n0.013008\n0.077136\n5\n0.036987\n-0.016579\n\n\nBloodPressure\n5.102041e-03\n0.003608\n0.017055\n5\n0.012530\n-0.002326\n\n\nSkinThickness\n1.020408e-03\n0.004269\n0.310654\n5\n0.009810\n-0.007769\n\n\nInsulin\n1.020408e-03\n0.010456\n0.418970\n5\n0.022550\n-0.020509\n\n\nAge\n-4.440892e-17\n0.006249\n0.500000\n5\n0.012866\n-0.012866\n\n\nDiabetesPedigreeFunction\n-5.102041e-03\n0.024469\n0.667353\n5\n0.045279\n-0.055483\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\n\n\n\n\n\n\nRows with the highest prediction error\n\n\nRows in this category worth inspecting for the causes of the error\n\n\n\n  \n    \n\n\n\n\n\n\nPregnancies\nGlucose\nBloodPressure\nSkinThickness\nInsulin\nBMI\nDiabetesPedigreeFunction\nAge\nOutcome\n0\n1\nerror\n\n\n\n\n5\n-0.518286\n-1.431480\n-1.887832\n0.328284\n-0.800806\n-0.193986\n-0.705937\n-0.635655\n1\n0.906169\n0.093831\n0.812337\n\n\n477\n0.000000\n-0.579660\n-0.698307\n0.906640\n-1.075827\n0.195752\n0.229493\n-0.974186\n1\n0.870545\n0.129455\n0.741090\n\n\n567\n0.000000\n-0.481373\n-0.868239\n0.096941\n-0.961235\n0.645451\n1.111368\n-0.720288\n1\n0.805917\n0.194083\n0.611834\n\n\n379\n-0.518286\n-0.022701\n-1.717900\n0.000000\n0.000000\n0.555511\n-1.137948\n-0.720288\n1\n0.749880\n0.250120\n0.499760\n\n\n210\n2.535578\n-1.234906\n-0.018578\n0.212612\n0.000000\n-0.388855\n-0.530990\n1.057002\n1\n0.742102\n0.257898\n0.484204\n\n\n246\n-0.178968\n-0.415849\n-0.698307\n1.716339\n-0.674755\n0.375632\n1.639779\n-0.635655\n1\n0.735923\n0.264077\n0.471846\n\n\n211\n0.499669\n-0.645185\n0.831083\n0.000000\n0.000000\n-0.223966\n-0.948720\n0.210673\n1\n0.726287\n0.273712\n0.452575\n\n\n309\n-0.518286\n0.272160\n0.491219\n-0.712758\n-0.903939\n-0.583725\n-0.438161\n0.041408\n1\n0.725646\n0.274354\n0.451293\n\n\n292\n-0.178968\n0.403209\n-0.018578\n0.000000\n0.000000\n-1.273262\n-0.602397\n2.241861\n1\n0.714604\n0.285396\n0.429209\n\n\n354\n-1.196923\n-0.219275\n-0.188510\n0.096941\n-0.709132\n0.345652\n0.297330\n-0.127858\n1\n0.709893\n0.290107\n0.419787\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\nRows with the least distance vs other class\n\n\nRows in this category are the closest to the decision boundary vs the other class and are good candidates for additional labeling\n\n\n\n  \n    \n\n\n\n\n\n\nPregnancies\nGlucose\nBloodPressure\nSkinThickness\nInsulin\nBMI\nDiabetesPedigreeFunction\nAge\nOutcome\n0\n1\nerror\n\n\n\n\n611\n-0.178968\n-0.055463\n-0.358442\n0.000000\n0.000000\n-0.403845\n0.939991\n0.041408\n0\n0.491737\n0.508263\n0.016526\n\n\n368\n-0.178968\n0.665307\n1.170947\n0.000000\n0.000000\n1.754706\n0.711489\n-0.974186\n1\n0.508290\n0.491710\n0.016580\n\n\n92\n1.856942\n0.567020\n0.661151\n0.000000\n0.000000\n-0.778594\n3.553483\n1.987963\n0\n0.481925\n0.518075\n0.036150\n\n\n372\n0.499669\n2.368946\n0.491219\n0.000000\n0.000000\n-1.318232\n-1.130808\n2.157229\n1\n0.519181\n0.480819\n0.038361\n\n\n25\n-1.196923\n0.894643\n-0.358442\n-0.018730\n-0.353897\n-0.448815\n-0.345332\n0.718470\n1\n0.524848\n0.475152\n0.049697\n\n\n217\n1.856942\n1.320553\n1.001015\n0.000000\n0.000000\n-0.688654\n-0.941579\n1.734064\n0\n0.472799\n0.527201\n0.054402\n\n\n145\n-0.178968\n0.960168\n1.510812\n1.022311\n0.000000\n-0.388855\n-0.541701\n0.210673\n0\n0.471797\n0.528203\n0.056407\n\n\n434\n-0.857604\n-0.415849\n1.680744\n0.000000\n0.000000\n1.559837\n1.425558\n1.734064\n0\n0.471443\n0.528557\n0.057113\n\n\n496\n-0.518286\n1.910274\n-0.698307\n-0.481415\n-1.007072\n0.255712\n-0.623819\n-0.635655\n0\n0.466142\n0.533858\n0.067716\n\n\n214\n0.838987\n-0.252037\n-0.698307\n0.000000\n0.000000\n-0.733624\n1.022109\n0.041408\n1\n0.534523\n0.465477\n0.069045\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\nGPT한테도 물어보자..\n나이 (Age): 나이는 당뇨병 발병 위험에 중요한 영향을 미칩니다. 일반적으로 나이가 들면 인슐린 저항성이 증가하고, 신체의 대사 활동이 감소함에 따라 당뇨병 발병 위험이 증가합니다.\n당뇨 혈통 기능 (Diabetes Pedigree Function): 이것은 당뇨병과 관련된 가족력을 나타냅니다. 당뇨병은 유전적 요인이 상당한 영향을 미칩니다. 가족 중에서 당뇨병이 있는 경우, 해당 개인의 당뇨병 발병 위험이 증가할 수 있습니다."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/단층신경망_VS_다층신경망.html",
-    "href": "posts/단층신경망_VS_다층신경망.html",
-    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
-    "section": "",
-    "text": "# 1차 함수로 극복 가능\n- w1,w2 -&gt; 가중치로 기울기 위치 변동\n\n\n\n\nimage.png"
-  },
-  {
-    "objectID": "posts/단층신경망_VS_다층신경망.html#단층신경망",
-    "href": "posts/단층신경망_VS_다층신경망.html#단층신경망",
-    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
-    "section": "",
-    "text": "# 1차 함수로 극복 가능\n- w1,w2 -&gt; 가중치로 기울기 위치 변동\n\n\n\n\nimage.png"
-  },
-  {
-    "objectID": "posts/단층신경망_VS_다층신경망.html#다층신경망",
-    "href": "posts/단층신경망_VS_다층신경망.html#다층신경망",
-    "title": "단층 신경망 vs 다층 신경망 with 가중치 수정",
-    "section": "다층신경망",
-    "text": "다층신경망\n\n\n\nimage.png\n\n\n\nXOR 분류\n\n\n\nimage.png\n\n\n1 -&gt; 파란선 위(1), 빨간선 위(1) 이므로 (1,1)의 결정경계좌표평면으로 이동\n2,3 -&gt; 파란선 아래(0), 빨간선 위(1) 이므로 (0,1)의 결정경계좌표평면으로 이동\n4 -&gt; 파란선 아래(0), 빨간선 아래(0) 이므로 (0,0)의 결정경계좌표평면으로 이동"
-  },
-  {
-    "objectID": "icmpdtr.html",
-    "href": "icmpdtr.html",
-    "title": "회귀 문제",
-    "section": "",
-    "text": "#!pip autogluon\n#!pip install autogluon.eda\n#!pip install lightgbm\n\n\nfrom sklearn.ensemble import GradientBoostingRegressor\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import mean_squared_error\nfrom sklearn.tree import DecisionTreeRegressor\nfrom sklearn.cluster import KMeans\nimport autogluon.eda.auto as auto\nfrom autogluon.tabular import TabularPredictor\nfrom autogluon.common import space\nimport lightgbm as lgb\n\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport sklearn.preprocessing\nimport sklearn.impute\nimport IPython\nimport os\nimport warnings\nwarnings.filterwarnings('ignore')\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.preprocessing import StandardScaler\ndf_train = pd.read_csv(\"/content/train.csv\")\ndf_test = pd.read_csv(\"/content/test.csv\")\nsubmission = pd.read_csv(\"/content/sample_submission.csv\")\n\nfrom sklearn.model_selection import GridSearchCV\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import StratifiedKFold\nfrom sklearn.metrics import mean_absolute_error\nfrom scipy.optimize import minimize\nfrom sklearn.preprocessing import LabelEncoder"
-  },
-  {
-    "objectID": "icmpdtr.html#범주형-변수를-인코딩",
-    "href": "icmpdtr.html#범주형-변수를-인코딩",
-    "title": "회귀 문제",
-    "section": ". 범주형 변수를 인코딩",
-    "text": ". 범주형 변수를 인코딩\n\ndf_train = pd.read_csv(\"train.csv\")\ndf_test = pd.read_csv(\"test.csv\")\nsubmission = pd.read_csv(\"sample_submission.csv\")\n\nX = df_train.query('Age&gt;=15').rename({'Working_Week (Yearly)':'Working_Week_Yearly'},axis=1)\\\n.query('Employment_Status!=\"Not Working\"').query('Working_Week_Yearly != 0 or Age&lt;80')\\\n.query('Occupation_Status != \"Unknown\"').loc[:,'Age':'Income_Status']\ny = df_train.query('Age&gt;=15').rename({'Working_Week (Yearly)':'Working_Week_Yearly'},axis=1)\\\n.query('Employment_Status!=\"Not Working\"').query('Working_Week_Yearly != 0 or Age&lt;80')\\\n.query('Occupation_Status != \"Unknown\"').loc[:,'Income']\n#################\nfor i in encoding_target:\n    le = LabelEncoder()\n\n    # train과 test 데이터셋에서 해당 열의 모든 값을 문자열로 변환\n    X[i] = X[i].astype(str)\n    X[i] = X[i].astype(str)\n\n    # 반드시 trian에만 fit 하고 test에는 fit하면 안됨(이유 궁금하면 찾아보세요)\n    le.fit(X[i])\n    X[i] = le.transform(X[i])\n\n    # le.classes_에서 train에는 없지만 test 에만 있는 값이 있으면 le.classes_에 해당 값을 추가\n    for case in np.unique(X[i]):\n        if case not in le.classes_:\n            le.classes_ = np.append(le.classes_, case)\n    X[i] = le.transform(X[i])\n\nfor i in encoding_target:\n    le = LabelEncoder()\n\n    # train과 test 데이터셋에서 해당 열의 모든 값을 문자열로 변환\n    df_test[i] = df_test[i].astype(str)\n    df_test[i] = df_test[i].astype(str)\n\n    # 반드시 trian에만 fit 하고 test에는 fit하면 안됨(이유 궁금하면 찾아보세요)\n    le.fit(df_test[i])\n    df_test[i] = le.transform(df_test[i])\n\n    # le.classes_에서 train에는 없지만 test 에만 있는 값이 있으면 le.classes_에 해당 값을 추가\n    for case in np.unique(df_test[i]):\n        if case not in le.classes_:\n            le.classes_ = np.append(le.classes_, case)\n    df_test[i] = le.transform(df_test[i])\n#################\n\npredictr = GradientBoostingRegressor()\npredictr.fit(X,y)\n\nXX = df_test.drop('ID',axis=1).rename({'Working_Week (Yearly)':'Working_Week_Yearly'},axis=1)\npredictr.predict(XX)\n\ndf_test = df_test.assign(predict_income=predictr.predict(XX))\ndf_test = df_test.rename(columns={'predict_income': 'Income'})\n#df_test\n\nReal_test = df_test.query('Age &gt;= 15').rename({'Working_Week (Yearly)': 'Working_Week'}, axis=1) \\\n    .query('Employment_Status != \"Not Working\"').query('Working_Week != 0 or Age &lt; 80') \\\n    .query('Occupation_Status != \"Unknown\"')\n\nUnReal_test = df_test.drop(Real_test.index)  # XX 는 걸러진 얘들 제거할 얘들\ndf_test.loc[UnReal_test.index, 'Income'] = 0\ndf_test.loc[Real_test.index, 'Income'] = Real_test.Income\ndf_test.loc[UnReal_test.index.difference(df_test.index), 'Income'] = 0\ndf_test\n\n\n  \n    \n\n\n\n\n\n\nID\nAge\nGender\nEducation_Status\nEmployment_Status\nWorking_Week (Yearly)\nIndustry_Status\nOccupation_Status\nRace\nHispanic_Origin\n...\nCitizenship\nBirth_Country\nBirth_Country (Father)\nBirth_Country (Mother)\nTax_Status\nGains\nLosses\nDividends\nIncome_Status\nIncome\n\n\n\n\n0\nTEST_0000\n79\n3\n26\n8\n0\n38\n29\n9\n10\n...\n7\n80\n81\n83\n11\n0\n0\n0\n4\n622.274382\n\n\n1\nTEST_0001\n47\n3\n24\n8\n0\n38\n29\n9\n18\n...\n7\n80\n80\n82\n10\n0\n0\n0\n4\n734.139843\n\n\n2\nTEST_0002\n18\n2\n26\n8\n52\n43\n26\n9\n10\n...\n7\n80\n80\n82\n11\n0\n0\n0\n4\n680.131995\n\n\n3\nTEST_0003\n39\n2\n18\n10\n30\n36\n26\n9\n10\n...\n7\n80\n80\n82\n8\n0\n0\n0\n5\n884.705937\n\n\n4\nTEST_0004\n6\n3\n20\n8\n0\n38\n29\n9\n16\n...\n7\n80\n80\n82\n10\n0\n0\n0\n5\n0.000000\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n9995\nTEST_9995\n31\n3\n19\n8\n52\n39\n27\n9\n10\n...\n7\n80\n80\n82\n11\n0\n0\n0\n4\n881.730855\n\n\n9996\nTEST_9996\n27\n3\n21\n8\n52\n43\n19\n9\n10\n...\n7\n80\n80\n82\n8\n0\n0\n0\n4\n919.032224\n\n\n9997\nTEST_9997\n18\n3\n29\n8\n7\n43\n26\n6\n10\n...\n7\n80\n80\n82\n10\n0\n0\n0\n4\n648.937575\n\n\n9998\nTEST_9998\n9\n3\n20\n8\n0\n38\n29\n9\n10\n...\n7\n80\n80\n82\n10\n0\n0\n0\n4\n0.000000\n\n\n9999\nTEST_9999\n34\n3\n29\n10\n39\n43\n21\n9\n10\n...\n7\n80\n80\n82\n8\n0\n0\n0\n4\n732.249204\n\n\n\n\n10000 rows × 23 columns"
+    "text": "Import\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDeep Learning Basic (1)\n\n\n\n\n\n\nDeep Learning\n\n\n\n\n\n\n\n\n\nDec 2, 2025\n\n\n이정민\n\n\n\n\n\n\n\n\n\n\n\n\n단층 신경망 vs 다층 신경망 with 가중치 수정\n\n\n\n\n\n\nDeep Learning\n\n\n\n\n\n\n\n\n\nDec 2, 2025\n\n\n이정민\n\n\n\n\n\n\n\n\n\n\n\n\n회귀 문제\n\n\n\n\n\n\nregression\n\n\n\n\n\n\n\n\n\nApr 7, 2024\n\n\n이정민\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 24, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 21, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   }
 ]
